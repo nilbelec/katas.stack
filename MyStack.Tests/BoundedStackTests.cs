@@ -113,9 +113,10 @@ namespace MyStack.Tests
         }
 
         [Test]
-        public void WhenFindingUnexistingElementThenItShouldReturnNull()
+        public void WhenFindingUnexistingElementPositionThenItShouldReturnNull()
         {
-            _boundedStack.FindPosition(1).Should().Be(null);
+            _boundedStack.Push(1);
+            _boundedStack.FindPosition(2).Should().Be(null);
         }
     }
 }
