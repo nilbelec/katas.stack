@@ -45,6 +45,14 @@ namespace MyStack
             return _elements[--_size];
         }
 
+        public int? FindPosition(int element)
+        {
+            for (var position = _elements.Length - 1; position >= 0; --position)
+                if (_elements[position] == element)
+                    return _elements.Length - 1 - position;
+            return null;
+        }
+
         public class OverflowException : InvalidOperationException
         {
         }

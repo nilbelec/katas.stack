@@ -6,5 +6,6 @@ namespace MyStack
         int GetSize();
         void Push(int element);
         int Pop();
+        int? FindPosition(int element);
     }
 }

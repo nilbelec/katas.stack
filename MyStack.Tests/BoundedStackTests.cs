@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using FluentAssertions;
+
 namespace MyStack.Tests
 {
     [TestFixture]
@@ -93,6 +94,28 @@ namespace MyStack.Tests
         public void WhenCreatingStackWithNegativeSizeThenItShouldThrowIllegalCapacity()
         {
             BoundedStack.Make(-1);
+        }
+
+        [Test]
+        public void WhenPushingOneAndTwoThenFindingTwoPositionShouldReturnZero()
+        {
+            _boundedStack.Push(1);
+            _boundedStack.Push(2);
+            _boundedStack.FindPosition(2).Should().Be(0);
+        }
+
+        [Test]
+        public void WhenPushingOneAndTwoThenFindingOnePositionShouldReturnOne()
+        {
+            _boundedStack.Push(1);
+            _boundedStack.Push(2);
+            _boundedStack.FindPosition(1).Should().Be(1);
+        }
+
+        [Test]
+        public void WhenFindingUnexistingElementThenItShouldReturnNull()
+        {
+            _boundedStack.FindPosition(1).Should().Be(null);
         }
     }
 }
